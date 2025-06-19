@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>United Riders Charity Club</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+        <img src="./images/logo.png" alt="URCC Logo" />
+        <h1>UNITED RIDERS CHARITY CLUB</h1>
+    </div>
+    <nav class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="board.html">Board</a></li>
+        <li><a href="members.html">Members</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+
+ <section class="hero-slideshow" id="hero-slideshow">
+  <div class="slideshow-image" id="slide1"></div>
+  <div class="slideshow-image" id="slide2"></div>
+  
+  <!-- ADD THIS OVERLAY -->
+  <div class="hero-overlay"></div>
+  
+  <div class="hero-content">
+    <h2>Ride. Give. Inspire.</h2>
+    <p>Empowering communities through unity and charity rides.</p>
+  </div>
+</section>
+
+  <footer id="contact" class="footer-section">
+    <div class="container">
+      <p>&copy; 2025 United Riders Charity Club</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  const images = [
+    './images/image1.jpg',
+    './images/image2.jpg',
+    './images/image3.jpg'
+  ];
+
+  const slide1 = document.getElementById('slide1');
+  const slide2 = document.getElementById('slide2');
+
+  let current = 1;
+  let showingFirst = true;
+
+  // Initial load
+  slide1.style.backgroundImage = `url('${images[0]}')`;
+  slide1.classList.add('active');
+
+  function switchSlide() {
+    const nextImage = images[current];
+
+    if (showingFirst) {
+      slide2.style.backgroundImage = `url('${nextImage}')`;
+      slide2.classList.add('active');
+      slide1.classList.remove('active');
+    } else {
+      slide1.style.backgroundImage = `url('${nextImage}')`;
+      slide1.classList.add('active');
+      slide2.classList.remove('active');
+    }
+
+    showingFirst = !showingFirst;
+    current = (current + 1) % images.length;
+  }
+
+  setInterval(switchSlide, 5000); // Change every 5 seconds
+</script>
+
+
+</body>
+</html>
